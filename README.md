@@ -27,16 +27,16 @@ to this markdown file.
 There are three test files in this repo, testKarp, testLocal, and compareTSP. TestKarp and testLocal both go to the extremes of their given algorithms, starting from low node counts to where the program exceeded an hour. The test code runs the loop and times how long each iteration takes, as well as the distance. The matrices were randomly generated each time. This is just useful to see overall growth rates and usefulness limitations. CompareTSP runs both algorithms on the same matrices to determine speed differences and compare the best distance found by each algorithm for a given generated matrix. Below are the results of these three tests.
 
 ## Held Karp Experiment
-| Size (nodes) | Distance | Time(min)|
+| Size (nodes) | Distance | Time(sec)|
 | ------------- | ------------- | ---- |
-|4 |9 |0.000005 |
-|6 |9 |0.000015 |
-|8 |23 |0.000168 |
-|10 |20 |0.000297 |
-|12 |22 |0.001307 |
-|14 |18 |0.007233 |
-|16 |20 |0.042703 |
-|18 |30 |0.253603 |
+|4 |10 |0.000369  |
+|6 |22 |0.001038  |
+|8 |17 |0.008262  |
+|10 |14 |0.013696  |
+|12 |21 |0.079607  |
+|14 |19 |0.425337  |
+|16 |17 |2.717104  |
+|18 |27 |15.530365  |
 
 Took over two hours to run for 20 nodes until I stopped the execution.
 
