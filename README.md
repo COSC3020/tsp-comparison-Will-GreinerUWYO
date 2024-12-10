@@ -23,6 +23,23 @@ Local Search found. Why is this?
 Add the code to run your experiments, graphs, and an explanation of what you did
 to this markdown file.
 
+## Experiment Explanation
+There are three test files in this repo, testKarp, testLocal, and compareTSP. TestKarp and testLocal both go to the extremes of their given algorithms, starting from low node counts to where the program exceeded an hour. The test code runs the loop and times how long each iteration takes, as well as the distance. The matrices were randomly generated each time. This is just useful to see overall growth rates and usefulness limitations. CompareTSP runs both algorithms on the same matrices to determine speed differences and compare the best distance found by each algorithm for a given generated matrix. Below are the results of these three tests.
+
+## Held Karp Experiment
+| Size (nodes) | Distance | Time(min)|
+| ------------- | ------------- | ---- |
+|4 |9 |0.000005 |
+|6 |9 |0.000015 |
+|8 |23 |0.000168 |
+|10 |20 |0.000297 |
+|12 |22 |0.001307 |
+|14 |18 |0.007233 |
+|16 |20 |0.042703 |
+|18 |30 |0.253603 |
+
+Took over two hours to run for 20 nodes until I stopped the execution.
+
 ## Local Search Experiment
 | Size (nodes)  | Distance | Time (min) |
 | ------------- | ------------- | ---- |
@@ -39,5 +56,8 @@ to this markdown file.
 |5000	|26596|			25.903|
 |7000 |37666| 91.092|
 
-codespace stopped while processing 5000. Set to go again after changing timeout rules
-changed test to 1000 instead of 500 for time
+## Comparing Local Search and Held Karp
+Below are the results of comparing the local search and held karp algorithms against the same randomly generated matrices of indexes from 3 to 19.
+| Size (nodes)  | Distance (Karp) | Time (min) (Karp) | Distance (Local) | Time (min) (Local) |
+| ------------- | ------------- | ---- | ------------ | ---- |
+|  0 | 0  | 0 | 0 | 0 |
