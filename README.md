@@ -37,6 +37,7 @@ to this markdown file.
 |4000	|21315	|		13.377|
 |4500	|23838|			19.751|
 |5000	|26596|			25.903|
+|7000 |37666| 91.092|
 
 codespace stopped while processing 5000. Set to go again after changing timeout rules
 changed test to 1000 instead of 500 for time
