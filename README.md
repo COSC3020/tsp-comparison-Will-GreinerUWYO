@@ -58,6 +58,14 @@ Took over two hours to run for 20 nodes until I stopped the execution.
 
 ## Comparing Local Search and Held Karp
 Below are the results of comparing the local search and held karp algorithms against the same randomly generated matrices of indexes from 3 to 19.
-| Size (nodes)  | Distance (Karp) | Time (min) (Karp) | Distance (Local) | Time (min) (Local) |
+| Size (nodes)  | Distance (Karp) | Time (sec) (Karp) | Distance (Local) | Time (sec) (Local) |
 | ------------- | ------------- | ---- | ------------ | ---- |
-|  0 | 0  | 0 | 0 | 0 |
+| 3   | 7  | 0.0002   | 11  | 0.00015  |
+| 5   | 11  | 0.0003   | 14  | 0.00011    |
+| 7   | 14  | 0.0079   | 26  | 0.000049   |
+| 9   | 23  | 0.0099   | 39  | 0.000052   |
+| 11  | 15  | 0.038   | 36  | 0.000081   |
+| 13  | 27  | 0.19   | 62  | 0.00012   |
+| 15  | 25  | 1.14   | 61  | 0.000046  |
+| 17  | 21  | 6.39   | 67  | 0.000060  |
+| 19  | 29  | 37.23   | 77  | 0.00011  |
