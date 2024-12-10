@@ -1,15 +1,15 @@
 function test() {
-    // tests every 500 node increments, anything less is too slow of an increase
-    for(let i = 0; i < 8000; i += 500){
+    // tests every node increments
+    for(let i = 3; i < 25; i++){
         // uses another function to generate a matrix with the correct number of nodes
         testMatrix = generateTest(i);
         // updates console with the current nsize of the check
-        console.log('Local search on ' + i + ' nodes');
+        console.log('Holding Karp on ' + i + ' nodes');
 
         // starts timer
         let startTime = performance.now();
         // find the bestDistance for the generated matrix
-        let bestDistance = tsp_ls(testMatrix);
+        let bestDistance = tsp_hk(testMatrix);
         // ends timer
         let endTime = performance.now();
         // computes time
@@ -20,7 +20,7 @@ function test() {
         // outputs the matrix size and best distance
         console.log('Matrix of size ' + i + ' had a best distance of ' + bestDistance);
         // outputs the time taken  
-        console.log('It took ' + totalTime.toFixed(3) + ' minutes to complete');
+        console.log('It took ' + totalTime.toFixed(6) + ' minutes to complete');
     }
 }
 
@@ -52,5 +52,74 @@ function generateTest(n){
     return matrix;
 }
 
+// this is DJReflexive's implemenation of tsp_hk
+function tsp_hk(distance_matrix) {
+  // Sizes of 0 or 1 have no distance
+  let size = distance_matrix.length;
+  if (size == 0 || size == 1) { return 0; }
+  
 
+  let bestMin = Infinity; // Initialize min
+  let dictionaryCache = {};
+
+  // Make Every City the Starting Node
+  for (let i = 0; i < size; i++) {
+      let cities = [];
+
+      // Fill array with the all cities
+      for (let j = 0; j < size; j++) { cities.push(j); }
+
+      let currentMin = heldKarp(i, cities, distance_matrix, dictionaryCache);
+
+      // Replaces current min with new min
+      if (currentMin < bestMin) { bestMin = currentMin; }
+  }
+  
+  return bestMin;
+}
+
+
+// Based on the psuedocode in the README
+function heldKarp(city, cities, matrix, cache) {
+  let size = cities.length;
+
+  // Check if it exists already in cache
+  let key = JSON.stringify([city, cities]);
+  if (cache[key] != undefined) { return cache[key]; }
+  
+
+  // Base Case when there are two cities
+  if (size == 2) {
+      for (let i = 0; i < size; i++) {
+          if (cities[i] != city) {
+              cache[key] = matrix[city][cities[i]];
+              return cache[key];
+          }
+      }
+  } else { 
+      let minDistance = Infinity;
+
+      for (let i = 0; i < size; i++) {
+          if (cities[i] == city) { continue; } // Skips current city
+
+          let newCities = [];
+
+          // Removes current city from cities list
+          for (let j = 0; j < size; j++) {
+              if (cities[j] == city) { continue; } // Skips current city
+
+              newCities.push(cities[j]);
+          }
+          
+          let distance = matrix[city][cities[i]] 
+                          + heldKarp(cities[i], newCities, matrix, cache);
+
+          // Find the min
+          if (minDistance > distance) { minDistance = distance; }
+      }
+
+      cache[key] = minDistance;
+      return minDistance;
+  }
+}
 test();
