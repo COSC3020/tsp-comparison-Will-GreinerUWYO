@@ -22,3 +22,21 @@ Local Search found. Why is this?
 
 Add the code to run your experiments, graphs, and an explanation of what you did
 to this markdown file.
+
+## Local Search Experiment
+| Size (nodes)  | Distance | Time (min) |
+| ------------- | ------------- | ---- |
+|  0 | 0  | 0 |
+|  500 | 2542  | 0.004 |
+|  1000 | 5155  |0.043  |
+|  1500 | 7798  | 0.210 |
+|  2000 | 10525  |0.571  |
+|2500	|13325|			2.304|	
+|3000	|15898			|4.530|
+|3500|	18644		|	7.797|
+|4000	|21315	|		13.377|
+|4500	|23838|			19.751|
+|5000	|26596|			25.903|
+
+codespace stopped while processing 5000. Set to go again after changing timeout rules
+changed test to 1000 instead of 500 for time
